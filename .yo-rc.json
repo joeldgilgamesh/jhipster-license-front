@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.licensemanager.gateway"
+    },
+    "jhipsterVersion": "6.9.0",
+    "applicationType": "gateway",
+    "baseName": "gateway",
+    "packageName": "com.licensemanager.gateway",
+    "packageFolder": "com/licensemanager/gateway",
+    "serverPort": "2024",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NTEwZmUyYzgwZWIzYmIzMDBhMTI3OGMzMWFhYmI4YWEzNjg0ZGNlOGU4NjJiNjk1NGEwNjBiZjk0OWRiNzg2ZDc4ODI2ZmQ4YjBkYWRiYmZjMGNhMzEzOTAyYzg2ZjgzZTNlMTdjMGE2OTVkOGQzODY1NjQ0NDg0NzQyZjUzMGQ=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1593628327094,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
