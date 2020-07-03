@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-md " style="background-color: rgb(100, 95, 81)">
+    <!-- Brand -->
+    <div class="container ">
+        <a class="navbar-brand text-white" href="index.html">Sprint pay</a>
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            Menu <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto nav-tabs nav-justified">
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle text-white  " data-toggle="dropdown" href="#" *ngIf="auth.isAuthenticate()"
+                       routerLinkActive="active" role="button" aria-haspopup="true" aria-expanded="false" >Service/Produit</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" routerLink="/create-servcie-product">create service or product  </a>
+                        <a class="dropdown-item" routerLink="/create-servcie-product">update service or product</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink="/service">List service/product</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" *ngIf="auth.isAuthenticate()"
+                       routerLinkActive="active" role="button" aria-haspopup="true" aria-expanded="false" >Client List </a>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" routerLink="/create-client" >create new user  </a>
+                        <a class="dropdown-item" routerLink="/create-client" >update user</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink="/clients">client list</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" *ngIf="auth.isAuthenticate()"
+                       routerLinkActive="active" role="button" aria-haspopup="true" aria-expanded="false" >Manage key</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink="/manage-key">Configuration key</a>
+                    </div>
+                </li>
+            </ul>
+            <h6 class=" icon ion-log-out  text-white text-right"
+                style="margin-left: 120px; padding-top: 10px; cursor:pointer"  (click)="onSignOut()" *ngIf="auth.isAuthenticate()"> Disconect</h6>
+        </div>
+    </div>
+</nav>
+<!--<header>
+  <nav class="navbar navbar-dark shadow-lg" style="background-color: rgb(79, 44, 156);">
+    <a class="navbar-brand" href="https://sprint-pay.com">https://sprint-pay.com/</a>
+  </nav>
+</header>-->

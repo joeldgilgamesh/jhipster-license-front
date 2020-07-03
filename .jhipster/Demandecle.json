@@ -1,0 +1,29 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "nbreposte",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dureecle",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "productname",
+      "fieldType": "String",
+      "fieldValidateRules": []
+    }
+  ],
+  "changelogDate": "20200702094022",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "demandecle",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no"
+}

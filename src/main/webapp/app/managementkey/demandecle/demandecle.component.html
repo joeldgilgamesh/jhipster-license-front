@@ -1,0 +1,29 @@
+<div class=" form1 container col-lg-6">
+
+    <form [formGroup]="editDemandeCle" class="bg-light p-2 rounded-right" (ngSubmit)="sendRequest()" >
+
+        <div class="form-group"   >
+            <label>Service: </label>
+            <select class="form-control" formControlName="id_product" *ngFor="let obj of productList">
+                <option value="Sp -finance">{{obj.productname}}</option>
+                <!--   <option value="Sp-ecole">Sp-ecole</option>
+                   <option value="maintenance">Sp-banque</option>-->
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Number of poste :</label>
+            <input type="number" class="form-control" formControlName="nbreposte"
+                   placeholder="Number of poste..." max="10">
+        </div>
+        <div class="form-group">
+            <label>validite: </label>
+            <select class="form-control" formControlName="dureecle">
+                <option value="6">6 mois</option>
+                <option value="12">12 mois</option>
+            </select>
+        </div>
+        <button class="btn btn-success" [disabled]="editDemandeCle.invalid" type="submit"> Send Request
+        </button>
+    </form>
+</div>
+

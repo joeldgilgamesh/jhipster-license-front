@@ -31,6 +31,7 @@
   },
   "defaultProject": "gateway",
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": false
   }
 }

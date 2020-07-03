@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span>Activationkeys</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-activationkey" [routerLink]="['/activationkey/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Activationkey
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="activationkeys?.length === 0">
+        <span>No activationkeys found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="activationkeys && activationkeys.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Username</span></th>
+                    <th scope="col" ><span>Keyactivation</span></th>
+                    <th scope="col" ><span>Productname</span></th>
+                    <th scope="col" ><span>Nbreposte</span></th>
+                    <th scope="col" ><span>Nbreinstanceon</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let activationkey of activationkeys ;trackBy: trackId">
+                    <td><a [routerLink]="['/activationkey', activationkey.id, 'view']">{{ activationkey.id }}</a></td>
+                    <td>{{ activationkey.username }}</td>
+                    <td>{{ activationkey.keyactivation }}</td>
+                    <td>{{ activationkey.productname }}</td>
+                    <td>{{ activationkey.nbreposte }}</td>
+                    <td>{{ activationkey.nbreinstanceon }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/activationkey', activationkey.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/activationkey', activationkey.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(activationkey)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -13,12 +13,16 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ErrorComponent } from './layouts/error/error.component';
+import { ManagementkeyModule } from 'app/managementkey/managementkey.module';
+import { ProductServiceComponent } from 'app/managementkey/product-service/product-service.component';
+import { TestConnexionComponent } from 'app/managementkey/test-connexion/test-connexion.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     GatewaySharedModule,
     GatewayCoreModule,
+    ManagementkeyModule,
     GatewayHomeModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     GatewayEntityModule,
@@ -26,5 +30,6 @@ import { ErrorComponent } from './layouts/error/error.component';
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
   bootstrap: [MainComponent],
+  exports: [PageRibbonComponent, FooterComponent],
 })
 export class GatewayAppModule {}

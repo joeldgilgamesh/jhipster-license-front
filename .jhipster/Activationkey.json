@@ -1,0 +1,36 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "username",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "keyactivation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productname",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nbreposte",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nbreinstanceon",
+      "fieldType": "Integer"
+    }
+  ],
+  "changelogDate": "20200702095810",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "activationkey",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no"
+}

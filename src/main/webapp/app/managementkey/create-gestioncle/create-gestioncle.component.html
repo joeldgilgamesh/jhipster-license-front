@@ -1,0 +1,33 @@
+<div class=" form1 container col-lg-6">
+
+    <form [formGroup]="editgestioncle" class="bg-light p-2 rounded-right" (ngSubmit)="actionClick()">
+
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" class="form-control" id="firstName" formControlName="user_name" maxlength="20"
+                   placeholder="User Name...">
+        </div>
+
+        <div class="form-group">
+            <label for="LastName">key activation</label>
+            <input type="number" class="form-control" id="LastName" formControlName="key_activation" max="10"
+                   placeholder="Activation Number..." >
+        </div>
+
+        <div class="form-group">
+            <label>Product Name</label>
+            <input type="number" class="form-control" aria-describedby="version help" formControlName="product_name" required
+                   min="1" maxl="10" placeholder="Number Of Intance Online...">
+        </div>
+
+        <div class="form-group">
+            <label>Nombre Instance</label>
+            <input type="number" class="form-control" aria-describedby="version help" formControlName="nbreinstanceOn" required
+                   min="1" maxl="10" placeholder="Number Of Intance Online...">
+        </div>
+
+        <button class="btn btn-outline-warning" type="submit" [disabled]="editgestioncle.invalid" >Update KEY
+        </button>
+    </form>
+</div>
+
