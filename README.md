@@ -1,0 +1,2 @@
+# jhipster-license-front
+reload
