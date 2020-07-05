@@ -4,29 +4,28 @@
 
         <div class="form-group">
             <label>User Name</label>
-            <input type="text" class="form-control" id="firstName" formControlName="user_name" maxlength="20"
+            <input type="text" class="form-control" id="User Name" formControlName="username" maxlength="20"
                    placeholder="User Name...">
         </div>
 
         <div class="form-group">
-            <label for="LastName">key activation</label>
-            <input type="number" class="form-control" id="LastName" formControlName="key_activation" max="10"
+            <label for="keyactivation">key activation</label>
+            <input type="text" class="form-control" id="keyactivation" formControlName="keyactivation"
                    placeholder="Activation Number..." >
         </div>
 
         <div class="form-group">
             <label>Product Name</label>
-            <input type="number" class="form-control" aria-describedby="version help" formControlName="product_name" required
-                   min="1" maxl="10" placeholder="Number Of Intance Online...">
+            <input type="text" class="form-control" aria-describedby="version help" formControlName="productname" required
+                    placeholder="Number Of Intance Online...">
         </div>
-
         <div class="form-group">
             <label>Nombre Instance</label>
-            <input type="number" class="form-control" aria-describedby="version help" formControlName="nbreinstanceOn" required
-                   min="1" maxl="10" placeholder="Number Of Intance Online...">
+            <input type="number" class="form-control" aria-describedby="version help" formControlName="nbreposte" required
+                    placeholder="Number Of Poste...">
         </div>
 
-        <button class="btn btn-outline-warning" type="submit" [disabled]="editgestioncle.invalid" >Update KEY
+        <button class="btn btn-outline-primary" type="submit" [disabled]="editgestioncle.invalid" >Update KEY
         </button>
     </form>
 </div>

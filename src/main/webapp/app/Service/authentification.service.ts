@@ -25,7 +25,7 @@ export class AuthentificationService {
   // tslint:disable-next-line:typedef
   signOut() {
     sessionStorage.removeItem(`isAuth`);
-    this.route.navigate(['/sign-in']);
+    this.route.navigate(['/sign']);
   }
 
   isAuthenticate(): boolean {

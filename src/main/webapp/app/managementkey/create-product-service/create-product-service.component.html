@@ -2,30 +2,26 @@
 
     <form [formGroup]="editProduct" class="bg-light p-2 rounded-right" (ngSubmit)="actionClick()">
 
-        <div class="form-group">
-            <label>Id </label>
-            <input type="text" class="form-control" formControlName="id" readonly="true"
-                   placeholder="service/product name...">
-        </div>
+
 
         <div class="form-group">
             <label>Name Service/Product</label>
-            <input type="text" class="form-control" id="firstName" formControlName="product_name" maxlength="20"
+            <input type="text" class="form-control" id="firstName" formControlName="productname" maxlength="20"
                    placeholder="Name Service/Product...">
         </div>
 
         <div class="form-group">
             <label for="LastName">code product</label>
-            <input type="text" class="form-control" id="LastName" formControlName="code_product" maxlength="10"
+            <input type="text" class="form-control" id="LastName" formControlName="codeproduct"
                    placeholder="code product..." >
         </div>
 
         <div class="form-group">
             <label>Version</label>
-            <input type="number" class="form-control" aria-describedby="version help" formControlName="version" required
-                   minlength="6" maxlength="20" placeholder="version...">
+            <input type="text" class="form-control" aria-describedby="version help" formControlName="version" required
+                   minlength="2" maxlength="90" placeholder="version...">
         </div>
-        <button class="btn btn-success" type="submit" [disabled]="editProduct.invalid" >dddd
+        <button class="btn btn-success" type="submit" [disabled]="editProduct.invalid" >Save
         </button>
     </form>
 </div>

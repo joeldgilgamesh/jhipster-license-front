@@ -30,6 +30,7 @@ export class ClientsComponent implements OnInit {
       data => {
         this.client = data;
         console.log(this.selectedClient);
+        console.log(this.client);
       },
       error => {
         console.log('Une erreur est survenus. !!');
@@ -40,13 +41,15 @@ export class ClientsComponent implements OnInit {
     );
   }
 
-  deleteClients(): void {
-    this.clientService.deleteUser(this.selectedClient?.iduser).subscribe(
+  deleteClients(id: number | undefined): void {
+    this.clientService.deleteUser(id).subscribe(
       () => {
         this.loadClient();
       },
       () => {
         console.log('Erreur de suppresion du client ');
+        console.log(this.client);
+        console.log(this.selectedClient);
       },
       () => {
         console.log('suppresion client réussis');

@@ -9,7 +9,6 @@ import { Modelmanegekey } from 'app/model/modelmanegekey';
 })
 export class GestiondecleService {
   public resourceUrl = SERVER_API_URL + 'api/activationkeys';
-
   constructor(private http: HttpClient) {}
 
   getDatagestion(): Observable<any> {

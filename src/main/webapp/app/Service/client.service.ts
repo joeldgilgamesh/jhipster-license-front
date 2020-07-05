@@ -22,7 +22,7 @@ export class ClientService {
     return this.http.post(this.ressourceUrl, client);
   }
   updateUser(client: User): Observable<any> {
-    return this.http.patch(this.ressourceUrl, client);
+    return this.http.put(this.ressourceUrl, client);
   }
 
   deleteUser(id: any): Observable<any> {

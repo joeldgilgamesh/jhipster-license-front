@@ -16,10 +16,11 @@ export class CreateClientsComponent implements OnInit {
   // operation = 'add' ;
 
   editClient = this.fb.group({
-    iduser: '',
+    id: '',
     username: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     phone: '',
+    password: '',
   });
 
   constructor(
@@ -38,7 +39,7 @@ export class CreateClientsComponent implements OnInit {
     this.router.data.subscribe(({ sp2 }) => {
       if (sp2) {
         this.selectedClient = sp2;
-        if (this.selectedClient?.iduser === undefined) {
+        if (this.selectedClient?.id === undefined) {
           console.log('create product');
         }
         this.updateForm(sp2);
@@ -48,24 +49,28 @@ export class CreateClientsComponent implements OnInit {
 
   updateForm(ps: any): void {
     this.editClient.patchValue({
-      iduser: ps.iduser,
+      id: ps.id,
       username: ps.username,
       email: ps.email,
       phone: ps.phone,
     });
   }
 
-  updateData(client: User): void {
-    client.iduser = this.editClient.get('iduser')!.value;
+  updateData(client: User | undefined): void {
+    // @ts-ignore
+    client.id = this.editClient.get('id')!.value;
+    // @ts-ignore
     client.username = this.editClient.get('username')!.value;
+    // @ts-ignore
     client.email = this.editClient.get('email')!.value;
+    // @ts-ignore
     client.phone = this.editClient.get('phone')!.value;
   }
 
   actionClick(): void {
-    this.selectedClient = new User();
+    // this.selectedClient = new User();
     this.updateData(this.selectedClient);
-    if (this.selectedClient?.iduser !== undefined) {
+    if (this.selectedClient?.id !== undefined) {
       this.clientService.updateUser(this.selectedClient).subscribe(
         data => {
           console.log('sucessfull updtate !');
@@ -78,10 +83,11 @@ export class CreateClientsComponent implements OnInit {
     } else {
       this.clientService
         .addUser({
-          iduser: this.editClient.get('iduser')!.value,
+          id: this.editClient.get('id')!.value,
           username: this.editClient.get('username')!.value,
           email: this.editClient.get('email')!.value,
           phone: this.editClient.get('phone')!.value,
+          password: this.editClient.get('password')!.value,
         })
         .subscribe(
           () => {

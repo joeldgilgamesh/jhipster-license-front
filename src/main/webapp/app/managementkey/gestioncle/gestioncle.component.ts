@@ -3,9 +3,6 @@ import { Modelmanegekey } from 'app/model/modelmanegekey';
 import { GestiondecleService } from 'app/Service/gestiondecle.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { ClientService } from 'app/Service/client.service';
-import { ServiceProductService } from 'app/Service/service-product.service';
-import { Productservice } from 'app/shared/model/productservice.model';
 
 @Component({
   selector: 'jhi-gestioncle',
@@ -15,21 +12,23 @@ import { Productservice } from 'app/shared/model/productservice.model';
 export class GestioncleComponent implements OnInit {
   modelmanagekey?: Modelmanegekey[];
   selectedkey?: Modelmanegekey;
-  productList?: Productservice[];
-  userList?: any[];
+
+  /*  productList?: Productservice[];
+    userList?: any[];*/
 
   constructor(
     private gestiondecleService: GestiondecleService,
     private httpClient: HttpClient,
-    private route: Router,
-    private serviceProduitService: ServiceProductService,
-    private clientService: ClientService
-  ) {}
+    private route: Router
+  ) // private serviceProduitService: ServiceProductService,
+  // private clientService: ClientService
+  {}
 
   ngOnInit(): void {
     this.selectedkey = new Modelmanegekey();
-    this.loadServiceProduit();
-    this.loadClients();
+    /*   this.loadServiceProduit();
+       this.loadClients();*/
+    this.loadDataKey();
   }
 
   loadDataKey(): void {
@@ -47,8 +46,8 @@ export class GestioncleComponent implements OnInit {
     );
   }
 
-  deleteKey(): void {
-    this.gestiondecleService.deleteKey(this.selectedkey?.activationkey).subscribe(
+  deleteKey(id: number | undefined): void {
+    this.gestiondecleService.deleteKey(id).subscribe(
       data => {
         this.loadDataKey();
       },
@@ -61,41 +60,41 @@ export class GestioncleComponent implements OnInit {
     );
   }
 
-  loadServiceProduit(): void {
-    this.serviceProduitService.getServiceproduit().subscribe(
-      data => {
-        this.productList = data;
-        console.log(this.productList);
-      },
-      error => {
-        console.log('Une erreur est survenus. !!');
-      },
-      () => {
-        console.log('chargement liste et produit reussis...');
-      }
-    );
-  }
+  /*  loadServiceProduit(): void {
+      this.serviceProduitService.getServiceproduit().subscribe(
+        data => {
+          this.productList = data;
+          console.log(this.productList);
+        },
+        error => {
+          console.log('Une erreur est survenus. !!');
+        },
+        () => {
+          console.log('chargement liste et produit reussis...');
+        }
+      );
+    }
 
-  loadClients(): void {
-    this.clientService.getClientList().subscribe(
-      data => {
-        this.userList = data;
-        console.log(this.userList);
-      },
-      error => {
-        console.log('Une erreur est survenus. !!');
-      },
-      () => {
-        console.log('chargement liste Cleint reussis...');
-      }
-    );
-  }
+    loadClients(): void {
+      this.clientService.getClientList().subscribe(
+        data => {
+          this.userList = data;
+          console.log(this.userList);
+        },
+        error => {
+          console.log('Une erreur est survenus. !!');
+        },
+        () => {
+          console.log('chargement liste Cleint reussis...');
+        }
+      );
+    }*/
 
   editDataKey(id: number | undefined): void {
     this.route.navigate(['update-gestioncle', id]);
   }
 
   onViewKey(id: number | undefined): void {
-    this.route.navigate(['view-client', id]);
+    this.route.navigate(['view-key', id]);
   }
 }

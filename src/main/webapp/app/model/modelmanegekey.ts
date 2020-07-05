@@ -1,13 +1,12 @@
-import { User } from './user';
 import { ProductService } from './product-service';
 
 export class Modelmanegekey {
   constructor(
-    public activationkey?: number,
-    public username?: User,
+    public id?: number,
     public keyactivation?: String,
+    public nbreinstanceon?: number,
+    public nbreposte?: number,
     public productname?: ProductService,
-    public nbrePoste?: number,
-    public nbreinstanceOn?: number
+    public username?: string
   ) {}
 }

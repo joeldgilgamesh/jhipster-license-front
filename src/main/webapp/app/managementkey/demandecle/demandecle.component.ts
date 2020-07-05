@@ -14,6 +14,7 @@ export class DemandecleComponent implements OnInit {
   productList?: any[];
 
   editDemandeCle = this.fb.group({
+    username: '',
     productname: '',
     nbreposte: ['', Validators.required],
     dureecle: ['', Validators.required],
@@ -41,7 +42,9 @@ export class DemandecleComponent implements OnInit {
 
     this.demandcleService.sendAskKey(c).subscribe(
       data => {
-        this.route.navigate(['/clients']);
+        console.log(data);
+        alert('Are you sure you want to send ??');
+        //this.route.navigate(['/clients']);
       },
       error => {
         console.log('faail send request' + c);

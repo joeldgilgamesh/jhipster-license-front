@@ -56,8 +56,8 @@ export class ProductServiceComponent implements OnInit {
     );
   }
 
-  deleteServiceProduit(): void {
-    this.serviceProduitService.deleteServiceproduit(this.selectedServiceProduit?.idproduct).subscribe(
+  deleteServiceProduit(id: number | undefined): void {
+    this.serviceProduitService.deleteServiceproduit(id).subscribe(
       () => {
         this.loadServiceProduit();
       },

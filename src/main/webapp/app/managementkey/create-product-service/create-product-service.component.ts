@@ -18,7 +18,7 @@ export class CreateProductServiceComponent implements OnInit {
   editProduct = this.fb.group({
     id: '',
     productname: ['', Validators.required],
-    codeproduct: ['', [Validators.required, Validators.email]],
+    codeproduct: ['', Validators.required],
     version: '',
   });
 
@@ -34,7 +34,7 @@ export class CreateProductServiceComponent implements OnInit {
     this.router.data.subscribe(({ sp1 }) => {
       if (sp1) {
         this.selectedServicesProduits = sp1;
-        if (this.selectedServicesProduits?.idproduct === undefined) {
+        if (this.selectedServicesProduits?.id === undefined) {
           console.log('create product');
         }
         this.updateForm(sp1);
@@ -44,28 +44,32 @@ export class CreateProductServiceComponent implements OnInit {
 
   updateForm(ps: any): void {
     this.editProduct.patchValue({
-      idproduct: ps.id_product,
-      productname: ps.product_name,
-      codeproduct: ps.code_product,
+      id: ps.id,
+      productname: ps.productname,
+      codeproduct: ps.codeproduct,
       version: ps.version,
     });
   }
 
-  updateData(product: ProductService): void {
-    product.idproduct = this.editProduct.get('id_product')!.value;
-    product.productname = this.editProduct.get('product_name')!.value;
-    product.codeproduct = this.editProduct.get('code_product')!.value;
+  updateData(product: ProductService | undefined): void {
+    // @ts-ignore
+    product.id = this.editProduct.get('id')!.value;
+    // @ts-ignore
+    product.productname = this.editProduct.get('productname')!.value;
+    // @ts-ignore
+    product.codeproduct = this.editProduct.get('codeproduct')!.value;
+    // @ts-ignore
     product.version = this.editProduct.get('version')!.value;
   }
 
   actionClick(): void {
-    this.selectedServicesProduits = new ProductService();
+    // this.selectedServicesProduits = new ProductService();
     this.updateData(this.selectedServicesProduits);
-    if (this.selectedServicesProduits?.idproduct !== undefined) {
+    if (this.selectedServicesProduits?.id !== undefined) {
       this.serviceProduitService.updateServiceproduit(this.selectedServicesProduits).subscribe(
         data => {
           console.log('sucessfull updtate !');
-          this.route.navigate(['/services-produit']);
+          this.route.navigate(['/service']);
         },
         error => {
           console.log('fail to update');
@@ -74,7 +78,7 @@ export class CreateProductServiceComponent implements OnInit {
     } else {
       this.serviceProduitService
         .addServiceproduit({
-          idproduct: this.editProduct.get('idproduct')!.value,
+          id: this.editProduct.get('id')!.value,
           productname: this.editProduct.get('productname')!.value,
           codeproduct: this.editProduct.get('codeproduct')!.value,
           version: this.editProduct.get('version')!.value,
@@ -82,7 +86,7 @@ export class CreateProductServiceComponent implements OnInit {
         .subscribe(
           data => {
             console.log('sucessfull add !');
-            this.route.navigate(['/services-produit']);
+            this.route.navigate(['/service']);
           },
           error => {
             console.log('fail to save');

@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { GatewayAppModule } from 'app/app.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TestConnexionComponent } from './test-connexion/test-connexion.component';
+import { SinglekeyComponent } from './singlekey/singlekey.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { TestConnexionComponent } from './test-connexion/test-connexion.componen
     CreateGestioncleComponent,
     GestioncleComponent,
     TestConnexionComponent,
+    SinglekeyComponent,
   ],
   exports: [NavabarComponent],
   imports: [

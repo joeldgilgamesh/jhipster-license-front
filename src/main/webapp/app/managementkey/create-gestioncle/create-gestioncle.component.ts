@@ -14,11 +14,12 @@ export class CreateGestioncleComponent implements OnInit {
   selectedmodelmanagekey?: Modelmanegekey;
 
   editgestioncle = this.fb.group({
+    id: '',
+    keyactivation: '',
     username: ['', Validators.required],
-    idproduct: ['', Validators.required],
     productname: ['', Validators.required],
-    nbrePoste: ['', Validators.required],
-    nbreinstanceOn: ['', Validators.required],
+    nbreposte: ['', Validators.required],
+    nbreinstanceon: ['', Validators.required],
   });
 
   constructor(
@@ -33,7 +34,7 @@ export class CreateGestioncleComponent implements OnInit {
     this.router.data.subscribe(({ sp3 }) => {
       if (sp3) {
         this.selectedmodelmanagekey = sp3;
-        if (this.selectedmodelmanagekey?.activationkey === undefined) {
+        if (this.selectedmodelmanagekey?.id === undefined) {
           console.log('create key succesful');
         }
         this.updateForm(sp3);
@@ -43,26 +44,34 @@ export class CreateGestioncleComponent implements OnInit {
 
   updateForm(ps: any): void {
     this.editgestioncle.patchValue({
+      id: ps.id,
       username: ps.username,
-      activationkey: ps.activationkey,
+      keyactivation: ps.keyactivation,
       productname: ps.productname,
-      nbrePoste: ps.activationnumber,
-      nbreinstanceOn: ps.nbreinstanceOn,
+      nbreposte: ps.nbreposte,
+      nbreinstanceon: ps.nbreinstanceon,
     });
   }
 
-  updateData(modelgeskey: Modelmanegekey): void {
-    modelgeskey.activationkey = this.editgestioncle.get(' activation_key')!.value;
-    modelgeskey.username = this.editgestioncle.get('user_name')!.value;
-    modelgeskey.productname = this.editgestioncle.get('product_name')!.value;
-    modelgeskey.nbrePoste = this.editgestioncle.get('nbrePoste')!.value;
-    modelgeskey.nbreinstanceOn = this.editgestioncle.get('nbreinstanceOn')!.value;
+  updateData(modelgeskey: Modelmanegekey | undefined): void {
+    // @ts-ignore
+    modelgeskey.id = this.editgestioncle.get('id')!.value;
+    // @ts-ignore
+    modelgeskey.keyactivation = this.editgestioncle.get('keyactivation')!.value;
+    // @ts-ignore
+    modelgeskey.username = this.editgestioncle.get('username')!.value;
+    // @ts-ignore
+    modelgeskey.productname = this.editgestioncle.get('productname')!.value;
+    // @ts-ignore
+    modelgeskey.nbreposte = this.editgestioncle.get('nbrePoste')!.value;
+    // @ts-ignore
+    modelgeskey.nbreinstanceon = this.editgestioncle.get('nbreinstanceOn')!.value;
   }
 
   actionClick(): void {
     this.selectedmodelmanagekey = new Modelmanegekey();
     this.updateData(this.selectedmodelmanagekey);
-    if (this.selectedmodelmanagekey?.activationkey !== undefined) {
+    if (this.selectedmodelmanagekey?.id !== undefined) {
       this.gestiondecleService.updateDatagestion(this.selectedmodelmanagekey).subscribe(
         data => {
           console.log('sucessfull updtate !');
@@ -75,11 +84,12 @@ export class CreateGestioncleComponent implements OnInit {
     } else {
       this.gestiondecleService
         .addDatagestion({
-          activationkey: this.editgestioncle.get('activation_key')!.value,
-          username: this.editgestioncle.get(' user_name')!.value,
-          productname: this.editgestioncle.get('product_name')!.value,
-          nbrePoste: this.editgestioncle.get(' nbrePoste')!.value,
-          nbreinstanceOn: this.editgestioncle.get('nbreinstanceOn')!.value,
+          id: this.editgestioncle.get('id')!.value,
+          keyactivation: this.editgestioncle.get('keyactivation')!.value,
+          username: this.editgestioncle.get(' username')!.value,
+          productname: this.editgestioncle.get('productname')!.value,
+          nbreposte: this.editgestioncle.get(' nbreposte')!.value,
+          nbreinstanceon: this.editgestioncle.get('nbreinstanceon')!.value,
         })
         .subscribe(
           data => {

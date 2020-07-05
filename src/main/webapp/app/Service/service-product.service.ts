@@ -20,7 +20,7 @@ export class ServiceProductService {
     return this.http.post(this.resourceUrl, productservice);
   }
   updateServiceproduit(productservice: ProductService): Observable<any> {
-    return this.http.patch(this.resourceUrl, productservice);
+    return this.http.put(this.resourceUrl, productservice);
   }
 
   deleteServiceproduit(id: number | undefined): Observable<any> {

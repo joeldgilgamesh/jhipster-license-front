@@ -2,11 +2,11 @@
 
     <form [formGroup]="editClient" class="bg-light p-2 rounded-right" (ngSubmit)="actionClick()">
 
-        <div class="form-group">
+        <!--<div class="form-group">
             <label>Id User </label>
             <input type="text" class="form-control" formControlName="iduser" readonly="true"
                    placeholder="Id User...">
-        </div>
+        </div>-->
 
         <div class="form-group">
             <label>User Name</label>
@@ -22,10 +22,10 @@
 
         <div class="form-group">
             <label>Phone Number</label>
-            <input type="tel" class="form-control" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" aria-describedby="version help" formControlName="phone" required
-                   min="6" max="20" placeholder="phone number...">
+            <input type="text" class="form-control"  aria-describedby="version help" formControlName="phone" required
+                    placeholder="phone number...">
         </div>
-        <button class="btn btn-success" type="submit" [disabled]="editClient.invalid" >Subscribe
+        <button class="btn btn-success" type="submit" [disabled]="editClient.invalid" >Save
         </button>
     </form>
 </div>

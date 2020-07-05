@@ -27,12 +27,13 @@ import { ServiceProductService } from 'app/Service/service-product.service';
 import { ClientService } from 'app/Service/client.service';
 import { User } from 'app/model/user';
 import { TestConnexionComponent } from 'app/managementkey/test-connexion/test-connexion.component';
+import { SinglekeyComponent } from 'app/managementkey/singlekey/singlekey.component';
 
 @Injectable({ providedIn: 'root' })
 export class ActionManagementGestioncle implements Resolve<Modelmanegekey> {
   constructor(private gestiondecleService: GestiondecleService) {}
   resolve(route: ActivatedRouteSnapshot): Observable<Modelmanegekey> {
-    const id = route.params['activation_key'];
+    const id = route.params['id'];
     if (id) {
       return this.gestiondecleService.getDataById(id);
     }
@@ -85,18 +86,40 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
         },
 
-        { path: 'service', component: ProductServiceComponent },
-        { path: 'clients', component: ClientsComponent },
-        { path: 'manage-key', component: GestioncleComponent },
-        { path: 'view-client/:id', component: SingleClientsComponent },
+        { path: 'service', component: ProductServiceComponent, canActivate: [AuthGuardService] },
+        { path: 'clients', component: ClientsComponent, canActivate: [AuthGuardService] },
+        { path: 'manage-key', component: GestioncleComponent, canActivate: [AuthGuardService] },
+        { path: 'view-client/:id', component: SingleClientsComponent, canActivate: [AuthGuardService] },
+        { path: 'view-key/:id', component: SinglekeyComponent, canActivate: [AuthGuardService] },
         { path: 'formulaire-cle', component: DemandecleComponent },
         { path: 'sign-in', component: SignInComponent },
+        { path: 'sign', component: TestConnexionComponent },
 
-        { path: 'create-servcie-product', component: CreateProductServiceComponent, resolve: { sp1: ActionResolveProduct } },
-        { path: 'update-servcie-product/:id', component: CreateProductServiceComponent, resolve: { p1: ActionResolveProduct } },
+        {
+          path: 'create-servcie-product',
+          component: CreateProductServiceComponent,
+          canActivate: [AuthGuardService],
+          resolve: { sp1: ActionResolveProduct },
+        },
+        {
+          path: 'update-servcie-product/:id',
+          component: CreateProductServiceComponent,
+          canActivate: [AuthGuardService],
+          resolve: { sp1: ActionResolveProduct },
+        },
 
-        { path: 'create-client', component: CreateClientsComponent, resolve: { sp2: ActionResolveClient } },
-        { path: 'update-client/:id', component: CreateClientsComponent, resolve: { sp2: ActionResolveClient } },
+        {
+          path: 'create-client',
+          component: CreateClientsComponent,
+          canActivate: [AuthGuardService],
+          resolve: { sp2: ActionResolveClient },
+        },
+        {
+          path: 'update-client/:id',
+          component: CreateClientsComponent,
+          canActivate: [AuthGuardService],
+          resolve: { sp2: ActionResolveClient },
+        },
 
         {
           path: 'update-gestioncle',
