@@ -34,12 +34,6 @@ export class SingleClientsComponent implements OnInit {
         console.log('chargement Clint reussis...');
       }
     );
-    /* this.clientService.getUserById(id).subscribe(
-      (clt: Client) => {
-      this.client = clt;
-      console.log('voici la liste de clients recuperer');
-      console.log(this.client);
-    });*/
   }
 
   onBack(): void {

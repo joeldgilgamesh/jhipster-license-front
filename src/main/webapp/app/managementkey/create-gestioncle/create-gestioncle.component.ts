@@ -14,12 +14,10 @@ export class CreateGestioncleComponent implements OnInit {
   selectedmodelmanagekey?: Modelmanegekey;
 
   editgestioncle = this.fb.group({
-    id: '',
     keyactivation: '',
     username: ['', Validators.required],
     productname: ['', Validators.required],
     nbreposte: ['', Validators.required],
-    nbreinstanceon: ['', Validators.required],
   });
 
   constructor(
@@ -49,13 +47,10 @@ export class CreateGestioncleComponent implements OnInit {
       keyactivation: ps.keyactivation,
       productname: ps.productname,
       nbreposte: ps.nbreposte,
-      nbreinstanceon: ps.nbreinstanceon,
     });
   }
 
   updateData(modelgeskey: Modelmanegekey | undefined): void {
-    // @ts-ignore
-    modelgeskey.id = this.editgestioncle.get('id')!.value;
     // @ts-ignore
     modelgeskey.keyactivation = this.editgestioncle.get('keyactivation')!.value;
     // @ts-ignore
@@ -64,12 +59,12 @@ export class CreateGestioncleComponent implements OnInit {
     modelgeskey.productname = this.editgestioncle.get('productname')!.value;
     // @ts-ignore
     modelgeskey.nbreposte = this.editgestioncle.get('nbrePoste')!.value;
-    // @ts-ignore
-    modelgeskey.nbreinstanceon = this.editgestioncle.get('nbreinstanceOn')!.value;
   }
 
   actionClick(): void {
-    this.selectedmodelmanagekey = new Modelmanegekey();
+    // this.selectedmodelmanagekey = new Modelmanegekey();
+    console.log(this.selectedmodelmanagekey);
+
     this.updateData(this.selectedmodelmanagekey);
     if (this.selectedmodelmanagekey?.id !== undefined) {
       this.gestiondecleService.updateDatagestion(this.selectedmodelmanagekey).subscribe(

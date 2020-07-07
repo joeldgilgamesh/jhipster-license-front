@@ -1,0 +1,22 @@
+<div class=" form1 container col-lg-6">
+
+    <form [formGroup]="editvaladationkey" class="bg-light p-2 rounded-right" (ngSubmit)="validationkey()" >
+
+        <div class="form-group  input-group">
+            <input type="text" class="form-control" formControlName="key1"
+                   placeholder="field one..." maxlength="4" size="4">
+
+            <input type="text" class="form-control" formControlName="key2"
+                   placeholder="field two..." maxlength="4" size="4">
+            <input type="text" class="form-control" formControlName="key3"
+                   placeholder="field three..." maxlength="4" size="4">
+
+            <input type="text" class="form-control" formControlName="key4"
+                   placeholder="field four..." maxlength="4" size="4">
+        </div>
+
+        <button class="btn btn-success" [disabled]="editvaladationkey.invalid" type="submit"> Send Request
+        </button>
+    </form>
+</div>
+

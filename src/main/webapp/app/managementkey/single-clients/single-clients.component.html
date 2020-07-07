@@ -1,10 +1,11 @@
 <main class="main text align-self-lg-center">
 
-<div>
-<h2>{{client.id}}</h2>
-<p>{{client.username}}</p>
-<p>{{client.email}}</p>
-<p>{{client.phone}}></p>
-<button class="btn btn-outline-primary" (click)="onBack()">Back</button>
+<div class="text-center text-white font-weight-bold">
+    <div> <h1 ><u>Details Customer</u></h1></div>
+<div><h2>ID customer : {{client.id}}</h2></div>
+<div><p>Name customer : {{client.username}}</p></div>
+<div><p>Email customer : {{client.email}}</p></div>
+<div><p> Phone number customer : {{client.phone}}</p></div>
+<div><button class="btn btn-primary" (click)="onBack()">Back</button></div>
 </div>
 </main>

@@ -30,4 +30,8 @@ export class GestiondecleService {
   deleteKey(activationkey: any): Observable<any> {
     return this.http.delete(this.resourceUrl + `/${activationkey}`);
   }
+
+  verificationkey(activationkey: any): Observable<any> {
+    return this.http.post(this.resourceUrl, activationkey);
+  }
 }

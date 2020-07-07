@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DemandcleService } from 'app/Service/demandcle.service';
 import { ServiceProductService } from 'app/Service/service-product.service';
+import { User } from 'app/model/user';
 
 @Component({
   selector: 'jhi-demandecle',
@@ -14,8 +15,7 @@ export class DemandecleComponent implements OnInit {
   productList?: any[];
 
   editDemandeCle = this.fb.group({
-    username: '',
-    productname: '',
+    productname: ['', Validators.required],
     nbreposte: ['', Validators.required],
     dureecle: ['', Validators.required],
   });
@@ -33,23 +33,32 @@ export class DemandecleComponent implements OnInit {
   }
 
   sendRequest(): void {
+    const client = new User();
+    client.id = 1;
+    client.username = 'toto';
+    client.phone = 3334;
+    client.email = 'trtrtr';
     const c = this.editDemandeCle.value;
-    /*let body ={
-      idUser:"" ,
-      idProduct:"",
-      nbPoste:"",
-      validite:""*/
-
-    this.demandcleService.sendAskKey(c).subscribe(
-      data => {
-        console.log(data);
-        alert('Are you sure you want to send ??');
-        //this.route.navigate(['/clients']);
-      },
-      error => {
-        console.log('faail send request' + c);
-      }
-    );
+    const body = {
+      user: client,
+      productname: this.editDemandeCle.get('productname')!.value,
+      nbreposte: this.editDemandeCle.get('nbreposte')!.value,
+      dureecle: this.editDemandeCle.get('dureecle')!.value,
+    };
+    console.log(JSON.stringify(body));
+    if (body.productname !== '-1') {
+      this.demandcleService.sendAskKey(body).subscribe(
+        data => {
+          console.log(JSON.stringify(data));
+          //this.route.navigate(['/clients']);
+        },
+        error => {
+          console.log('faail send request' + error);
+        }
+      );
+    } else {
+      alert('selectionner produit');
+    }
   }
 
   loadproduct(): void {

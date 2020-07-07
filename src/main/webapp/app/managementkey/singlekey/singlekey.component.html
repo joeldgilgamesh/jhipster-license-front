@@ -1,9 +1,14 @@
-<div>
-<h2>{{ modelmanagekey.username }}</h2>
-<p>Key Activation : {{ modelmanagekey.keyactivation }}</p>
-    <p>Product Name : {{ modelmanagekey.productname}}</p>
-    <p>Number poste : {{ modelmanagekey.nbreposte }}</p>
-    <p>Number Instance Activate : {{ modelmanagekey.nbreinstanceon }}</p>
+<main>
 
-    <button class="btn btn-outline-primary" (click)="onBack()">Back</button>
+    <div class="text-center text-white font-weight-bold">
+        <div> <h1 ><u>Details Key</u></h1></div>
+
+    <div> <h2>{{ modelmanagekey.username }}</h2></div>
+    <div> <p>Key Activation : {{ modelmanagekey.keyactivation }}</p></div>
+    <div> <p>Product Name : {{ modelmanagekey.productname}}</p></div>
+    <div> <p>Number poste : {{ modelmanagekey.nbreposte }}</p></div>
+        <div><p>Number Instance Activate : {{ modelmanagekey.nbreinstanceon }}</p></div>
+
+    <div><button class="btn btn-outline-primary" (click)="onBack()">Back</button></div>
 </div>
+</main>

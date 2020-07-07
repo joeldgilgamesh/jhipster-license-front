@@ -16,6 +16,7 @@ import { GatewayAppModule } from 'app/app.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TestConnexionComponent } from './test-connexion/test-connexion.component';
 import { SinglekeyComponent } from './singlekey/singlekey.component';
+import { ValidationkeyComponent } from './validationkey/validationkey.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SinglekeyComponent } from './singlekey/singlekey.component';
     GestioncleComponent,
     TestConnexionComponent,
     SinglekeyComponent,
+    ValidationkeyComponent,
   ],
   exports: [NavabarComponent],
   imports: [

@@ -28,6 +28,7 @@ import { ClientService } from 'app/Service/client.service';
 import { User } from 'app/model/user';
 import { TestConnexionComponent } from 'app/managementkey/test-connexion/test-connexion.component';
 import { SinglekeyComponent } from 'app/managementkey/singlekey/singlekey.component';
+import { ValidationkeyComponent } from 'app/managementkey/validationkey/validationkey.component';
 
 @Injectable({ providedIn: 'root' })
 export class ActionManagementGestioncle implements Resolve<Modelmanegekey> {
@@ -92,6 +93,7 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
         { path: 'view-client/:id', component: SingleClientsComponent, canActivate: [AuthGuardService] },
         { path: 'view-key/:id', component: SinglekeyComponent, canActivate: [AuthGuardService] },
         { path: 'formulaire-cle', component: DemandecleComponent },
+        { path: 'validate-key', component: ValidationkeyComponent },
         { path: 'sign-in', component: SignInComponent },
         { path: 'sign', component: TestConnexionComponent },
 

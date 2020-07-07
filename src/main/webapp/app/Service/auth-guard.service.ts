@@ -18,16 +18,5 @@ export class AuthGuardService implements CanActivate {
     else {
       this.router.navigate(['/sign-in']);
     }
-
-    // eslint-disable-next-line @typescript-eslint/tslint/config
-    // tslint:disable-next-line:typedef
-    /* canActivate(
-       route: ActivatedRouteSnapshot,
-       state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-       if (this.authService.isAuthenticate()) return this.authService.isAuthenticate();
-       else {
-         this.router.navigate(['/sign-in']);
-       }
-     }*/
   }
 }
